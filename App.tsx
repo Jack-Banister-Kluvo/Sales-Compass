@@ -1,5 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Article, ViewMode } from './types';
 import { MOCK_ARTICLES } from './constants';
 import Header from './components/Header';
@@ -31,6 +33,7 @@ const App: React.FC = () => {
   };
 
   return (
+    <>
     <div className="min-h-screen bg-white flex flex-col">
       <Header onNavigate={(view) => {
         setViewMode(view);
@@ -85,6 +88,9 @@ const App: React.FC = () => {
         </div>
       </footer>
     </div>
+    <Analytics />
+    <SpeedInsights />
+    </>
   );
 };
 
